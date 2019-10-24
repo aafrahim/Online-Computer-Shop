@@ -43,41 +43,40 @@ router.get('/productlist', function(req, res){
 // 	});
 // });
 
-// router.get('/edit/:id', function(req, res){
+router.get('/edit/:id', function(req, res){
 
-// 	userModel.getById(req.params.id, function(results){
-// 		res.render('user/edit', {user: results});		
-// 	});
+	productModel.getById(req.params.id, function(results){
+		res.render('product/edit', {product: results});		
+	});
 
-// });
+});
 
-// router.post('/edit/:id', function(req, res){
+router.post('/edit/:id', function(req, res){
 
-// 	var user = {
-// 		id: req.params.id,
-// 		name: req.body.name,
-// 		cname: req.body.cname,
-// 		uname: req.body.uname,
-// 		password: req.body.password,
-// 		contact: req.body.contact
-// 	};
+	var product = {
+		id: req.params.id,
+		name: req.body.name,
+		type: req.body.type,
+		subtype: req.body.subtype,
+		company: req.body.company
+	};
 
-// 	userModel.update(user, function(status){
+	productModel.update(product, function(status){
 
-// 		if(status){
-// 			res.redirect('/user/userlist');
-// 		}else{
-// 			res.redirect('/user/edit/:req.params.id');
-// 		}
-// 	});
-// });
+		if(status){
+			res.redirect('/product/productlist');
+		}else{
+			res.redirect('/product/edit/:req.params.id');
+		}
+	});
+});
 
 router.get('/delete/:id', function(req, res){
 
-	var user ={id: req.params.id}
+	var product ={id: req.params.id}
 
-	userModel.delete(user, function(status){
-		res.redirect('/user/userlist');;		
+	productModel.delete(product, function(status){
+		res.redirect('/product/productlist');;		
 	});
 
 });

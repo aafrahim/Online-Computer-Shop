@@ -19,8 +19,7 @@
 			<td>Company</td>
 			<td>Action</td>
 		</tr>
-
-	<% for(var i=0; i< user.length; i++){ %>
+	<% for(var i=0; i< product.length; i++){ %>
 		<tr>
 			<td><%= product[i].id %></td>
 			<td><%= product[i].name %></td>
@@ -28,7 +27,7 @@
 			<td><%= product[i].subtype %></td>
 			<td><%= product[i].company %></td>
 			<td>
-				<a href="/product/edit/<%= product[i].id %>"> Edit </a>
+				<a href="/product/edit/<%= product[i].id %>"> Edit </a> |
 				<a href="/product/delete/<%= product[i].id %>"> Delete </a>
 			</td>
 		</tr>

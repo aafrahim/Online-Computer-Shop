@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>product edit</title>
+</head>
+<body>
+	<h1>Edit Product</h1>
+
+	<a href="/product/productlist">Back</a> |
+	<a href="/logout">logout</a>
+
+<br><br>
+
+<form method="post">
+	<table border="0">
+		<tr>
+			<td>Name</td>
+			<td><input type="text" name="name" value="<%=product.name%>"></td>
+		</tr>
+		<tr>
+			<td>Type</td>
+			<td><input type="text" name="type" value="<%=product.type%>"></td>
+		</tr>
+		<tr>
+			<td>Subtype</td>
+			<td><input type="text" name="subtype" value="<%=product.subtype%>"></td>
+		</tr>
+		<tr>
+			<td>company</td>
+			<td><input type="text" name="company" value="<%=product.company%>"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="submit" value="Save"></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

@@ -10,7 +10,7 @@ var cookieParser= require('cookie-parser');
  var login  	= require('./controllers/login');
  var logout  	= require('./controllers/logout');
  var registration  	= require('./controllers/registration');
- var product = require('./controllers/registration');
+ var product = require('./controllers/product');
 var app 		= express();
 
 //CONGIFURATION
