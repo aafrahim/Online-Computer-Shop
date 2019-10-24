@@ -6,10 +6,11 @@ var exSession  	= require('express-session');
 var cookieParser= require('cookie-parser');
  var homeAdmin  = require('./controllers/homeAdmin');
  var homeCustomer  = require('./controllers/homeCustomer');
- //var user  		= require('./controllers/user');
+ var user  		= require('./controllers/user');
  var login  	= require('./controllers/login');
  var logout  	= require('./controllers/logout');
  var registration  	= require('./controllers/registration');
+ var product = require('./controllers/registration');
 var app 		= express();
 
 //CONGIFURATION
@@ -22,7 +23,8 @@ app.use(cookieParser());
 app.use('/homeAdmin', homeAdmin);
 app.use('/homeCustomer', homeCustomer);
 app.use('/registration', registration);
-//app.use('/user', user);
+app.use('/product', product);
+app.use('/user', user);
 app.use('/login', login);
 app.use('/logout', logout);
 

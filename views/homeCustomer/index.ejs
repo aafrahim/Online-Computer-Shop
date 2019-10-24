@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee list</title>
+	<title>Home</title>
 </head>
 <body>
 	<h1>Home</h1>
@@ -11,21 +11,15 @@
 
 <br><br>
 	<table border="1">
-	<% for(var i=0; i< product.length; i++){ %>
+	
 		<tr>
-<!-- 			<td><%= user[i].id %></td>
-			<td><%= user[i].name %></td>
-			<td><%= user[i].cname %></td>
-			<td><%= user[i].uname %></td>
-			<td><%= user[i].password %></td>
-			<td><%= user[i].contact %></td>
-			<td><%= user[i].utype %></td> -->
+			<% for(var i=0; i< product.length; i++){ %>
 			<td>
-				<a href="/user/edit/<%= product[i].type %>"> EDIT </a>
+				<a href = ""><%=product[i].type%></a>
 			</td>
+				<% } %>
 		</tr>
-
-	<% } %>
 	</table>
 </body>
 </html>
+

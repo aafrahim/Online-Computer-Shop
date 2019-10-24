@@ -11,12 +11,12 @@ router.get('*', function(req, res, next){
 	}
 });
 
-// router.get('/userlist', function(req, res){
+router.get('/userlist', function(req, res){
 
-// 		userModel.getAll(function(results){
-// 			res.render('user/index', {user: results});
-// 		});
-// });
+		userModel.getAll(function(results){
+			res.render('user/index', {user: results});
+		});
+});
 
 
 // router.get('/addemp', function(req, res){
@@ -72,15 +72,15 @@ router.get('*', function(req, res, next){
 // 	});
 // });
 
-// router.get('/delete/:id', function(req, res){
+router.get('/delete/:id', function(req, res){
 
-// 	var user ={id: req.params.id}
+	var user ={id: req.params.id}
 
-// 	userModel.delete(user, function(status){
-// 		res.redirect('/user/userlist');;		
-// 	});
+	userModel.delete(user, function(status){
+		res.redirect('/user/userlist');;		
+	});
 
-// });
+});
 
 // router.get('/details/:id', function(req, res){
 

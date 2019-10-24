@@ -14,7 +14,7 @@ router.get('*', function(req, res, next){
 });
 
 router.get('/', function(req, res){
-	productModel.getAllP(function(results){
+	        productModel.getAllP(function(results){
 			res.render('homeCustomer/index', {product: results});
 		});
 	//res.render('homeCustomer/index');

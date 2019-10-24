@@ -41,24 +41,24 @@ module.exports={
 			}
 		});
 	},
-	// getAll : function(callback){
-	// 	var sql = "select * from userinfo";
+	getAll : function(callback){
+		var sql = "select * from userinfo";
 
-	// 	db.getResults(sql, [], function(results){
+		db.getResults(sql, [], function(results){
 
-	// 		if(results.length > 0 ) {
-	// 			callback(results);
-	// 		}else{
-	// 			callback([]);
-	// 		}
-	// 	});
-	// },
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
 	insert : function(user, callback){
 		var sql = "insert into userinfo values('', ?, ?, ?, ?, ?)";
 		db.execute(sql, [user.name, user.username, user.password, user.email, user.utype], function(status){
 			callback(status);
 		});
-	}
+	},
 	// update : function(user, callback){
 	// 	var sql = "update userinfo set name=?, cname= ?, uname=?, password=?, contact=? where id=?";		
 	// 		db.execute(sql, [user.name, user.cname, user.uname, user.password, user.contact, user.id], function(status){
@@ -66,12 +66,12 @@ module.exports={
 	// 		});
 		
 	// },
-	// delete : function(user, callback){
-	// 	var sql = "delete from userinfo where id=?";
-	// 	db.execute(sql, [user.id],  function(status){
-	// 		callback(status);
-	// 	});
-	// }
+	delete : function(user, callback){
+		var sql = "delete from userinfo where id=?";
+		db.execute(sql, [user.id],  function(status){
+			callback(status);
+		});
+	}
 }	
 
 

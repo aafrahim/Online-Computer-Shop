@@ -1,31 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Employee list</title>
-</head>
-<body>
-	<h1>Home</h1>
+	<head>
+		<title>Home</title>
+	</head>
+	<body>
+		<h1>Welcome Home</h1>
 
-<!-- 	<a href="/homeAdmin">Back</a> |
-	<a href="/logout">logout</a> -->
+		<a href="/user/userlist">User List</a> |
+		<a href="/product/productlist">product List</a> |
+		<a href="/logout">logout</a>
 
-<br><br>
-	<table border="1">
-	<% for(var i=0; i< product.length; i++){ %>
-		<tr>
-<!-- 			<td><%= user[i].id %></td>
-			<td><%= user[i].name %></td>
-			<td><%= user[i].cname %></td>
-			<td><%= user[i].uname %></td>
-			<td><%= user[i].password %></td>
-			<td><%= user[i].contact %></td>
-			<td><%= user[i].utype %></td> -->
-			<td>
-				<a href="/user/edit/<%= product[i].type %>"> EDIT </a>
-			</td>
-		</tr>
-
-	<% } %>
-	</table>
-</body>
+	</body>
 </html>
