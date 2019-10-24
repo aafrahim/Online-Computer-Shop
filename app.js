@@ -9,6 +9,7 @@ var cookieParser= require('cookie-parser');
  //var user  		= require('./controllers/user');
  var login  	= require('./controllers/login');
  var logout  	= require('./controllers/logout');
+ var registration  	= require('./controllers/registration');
 var app 		= express();
 
 //CONGIFURATION
@@ -20,6 +21,7 @@ app.use(exSession({secret:"my top secret value", saveUninitialized:true, resave:
 app.use(cookieParser());
 app.use('/homeAdmin', homeAdmin);
 app.use('/homeCustomer', homeCustomer);
+app.use('/registration', registration);
 //app.use('/user', user);
 app.use('/login', login);
 app.use('/logout', logout);

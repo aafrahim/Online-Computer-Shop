@@ -32,13 +32,15 @@ module.exports={
 
 		db.getResults(sql, [user.username, user.password], function(result){
 
+			console.log(result);
+
 			if(result.length > 0 ) {
 				callback(result[0]);
 			}else{
 				callback([]);
 			}
 		});
-	}
+	},
 	// getAll : function(callback){
 	// 	var sql = "select * from userinfo";
 
@@ -51,12 +53,12 @@ module.exports={
 	// 		}
 	// 	});
 	// },
-	// insert : function(user, callback){
-	// 	var sql = "insert into userinfo values('', ?, ?, ?, ?, ?, ?)";
-	// 	db.execute(sql, [user.name, user.cname, user.uname, user.password, user.contact, user.utype], function(status){
-	// 		callback(status);
-	// 	});
-	// },
+	insert : function(user, callback){
+		var sql = "insert into userinfo values('', ?, ?, ?, ?, ?)";
+		db.execute(sql, [user.name, user.username, user.password, user.email, user.utype], function(status){
+			callback(status);
+		});
+	}
 	// update : function(user, callback){
 	// 	var sql = "update userinfo set name=?, cname= ?, uname=?, password=?, contact=? where id=?";		
 	// 		db.execute(sql, [user.name, user.cname, user.uname, user.password, user.contact, user.id], function(status){
