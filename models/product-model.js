@@ -53,12 +53,12 @@ module.exports={
 			}
 		});
 	},
-	// insert : function(user, callback){
-	// 	var sql = "insert into userinfo values('', ?, ?, ?, ?, ?)";
-	// 	db.execute(sql, [user.name, user.username, user.password, user.email, user.utype], function(status){
-	// 		callback(status);
-	// 	});
-	// }
+	insert : function(product, callback){
+		var sql = "insert into productinfo values('', ?, ?, ?, ?)";
+		db.execute(sql, [product.name, product.type, product.subtype, product.company], function(status){
+			callback(status);
+		});
+	},
 	update : function(product, callback){
 		var sql = "update productinfo set name=?, type= ?, subtype=?, company=? where id=?";		
 			db.execute(sql, [product.name, product.type, product.subtype, product.company, product.id], function(status){

@@ -19,29 +19,27 @@ router.get('/productlist', function(req, res){
 });
 
 
-// router.get('/addemp', function(req, res){
-// 	res.render('user/addemp');
-// });
+router.get('/add', function(req, res){
+	res.render('product/add');
+});
 
-// router.post('/addemp', function(req, res){
+router.post('/add', function(req, res){
 
-// 	var user = {
-// 		name: req.body.name,
-// 		cname: req.body.cname,
-// 		uname: req.body.uname,
-// 		password: req.body.password,
-// 		contact: req.body.contact,
-// 		utype: 1
-// 	};
+	var product = {
+		name: req.body.name,
+		type: req.body.type,
+		subtype: req.body.subtype,
+		company: req.body.company
+	};
 
-// 	userModel.insert(user, function(status){
-// 		if(status){
-// 			res.redirect('/user/userlist');
-// 		}else{
-// 			res.redirect('/user/addemp');
-// 		}
-// 	});
-// });
+	productModel.insert(product, function(status){
+		if(status){
+			res.redirect('/product/productlist');
+		}else{
+			res.redirect('/product/add');
+		}
+	});
+});
 
 router.get('/edit/:id', function(req, res){
 
