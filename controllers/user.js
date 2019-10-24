@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('*', function(req, res, next){
 
-	if(req.cookies['uname'] != null){
+	if(req.cookies['username'] != null){
 		next();
 	}else{
 		res.redirect('/login');
