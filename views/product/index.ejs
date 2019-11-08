@@ -16,7 +16,10 @@
 			<td>Name</td>
 			<td>Type</td>
 			<td>Subtype</td>
+			<td>Image</td>
 			<td>Company</td>
+			<td>Description</td>
+			<td>Price</td>
 			<td>Action</td>
 		</tr>
 	<% for(var i=0; i< product.length; i++){ %>
@@ -25,7 +28,10 @@
 			<td><%= product[i].name %></td>
 			<td><%= product[i].type %></td>
 			<td><%= product[i].subtype %></td>
+			<td><%= product[i].image %></td>
 			<td><%= product[i].company %></td>
+			<td><%= product[i].description %></td>
+			<td><%= product[i].price %></td>
 			<td>
 				<a href="/product/edit/<%= product[i].id %>"> Edit </a> |
 				<a href="/product/delete/<%= product[i].id %>"> Delete </a>
