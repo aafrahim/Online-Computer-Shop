@@ -5,41 +5,45 @@
 </head>
 <body>
 	<h1>Registration</h1>
-
 	<a href="/login">Login</a>
-
 <br><br>
 
 <form method="post" onsubmit="return validate()">
 	<table border="0">
 		<tr>
 			<td>Name</td>
+			<td>:</td>
 			<td><input type="text" name="name" id="name">
-				<label id="errname" style="visibility: hidden;">Invalid</label>
+				<label id="errname" style="visibility: hidden;">Can not remain Empty</label>
 			</td>
 			</tr>
 		<tr>
 			<td>Username</td>
-			<td><input type="text" name="username"></td>
+			<td>:</td>
+			<td><input type="text" name="username" id="username">
+				<label id="erruname1" style="visibility: hidden;">Can not remain Empty/Has to be unique</label>
+			</td>
 		</tr>
 		<tr>
 			<td>Password</td>
+			<td>:</td>
 			<td><input type="password" name="password"></td>
 		</tr>
 		<tr>
 			<td>Email</td>
-			<td><input type="text" name="email"></td>
+			<td>:</td>
+			<td><input type="email" name="email"></td>
 		</tr>
 		<tr>
 			<td>User Type</td>
-			<td><input type="text" name="utype" placeholder="0 for admin and 1 for Customer">
-			</td>
-			<!-- <td><select name="utype">
+			<td>:</td>
+			<td><select name="utype">
 				<option value="0">Admin</option>
 				<option value="1">Customer</option>
-			</select></td> -->
+			</select></td>
 		</tr>
 		<tr>
+			<td></td>
 			<td></td>
 			<td><input type="submit" name="submit" value="submit"></td>
 		</tr>
@@ -50,11 +54,17 @@
 	document.alert('')
 	function validate(){
 		var name = document.getElementById("name");
-	if(name.value.trim()<5)
-	{
-		document.getElementById("errname").style.visibility="visible";
-		return false;
-	}
+		var username = document.getElementById("username");
+		if(name.value.trim() == "")
+		{
+			document.getElementById("errname").style.visibility="visible";
+			return false;
+		}
+		if(username.value.trim() == "")
+		{
+			document.getElementById("erruname1").style.visibility="visible";
+			return false;
+		}
 	}
 </script>
 
