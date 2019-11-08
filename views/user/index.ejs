@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee list</title>
+	<title>User list</title>
 </head>
 <body>
-	<h1>Employee List</h1>
+	<h1>User List</h1>
 
 	<a href="/homeAdmin">Back</a> |
 	<a href="/logout">logout</a>
@@ -12,10 +12,9 @@
 <br><br>
 	<table border="1">
 		<tr>
-			<td>Id</td>
+			<td>SL. No</td>
 			<td>Name</td>
 			<td>User Name</td>
-			<td>Password</td>
 			<td>Email</td>
 			<td>User Type</td>
 			<td>Action</td>
@@ -23,12 +22,15 @@
 
 	<% for(var i=0; i< user.length; i++){ %>
 		<tr>
-			<td><%= user[i].id %></td>
+			<td><%= i+1 %></td>
 			<td><%= user[i].name %></td>
 			<td><%= user[i].username %></td>
-			<td><%= user[i].password %></td>
 			<td><%= user[i].email %></td>
-			<td><%= user[i].utype %></td>
+			<% if(user[i].utype == 0) { %>
+			<td>Admin</td>
+			<% }else { %>
+			<td>Customer</td>
+			<% } %>
 			<td>
 				<a href="/user/delete/<%= user[i].id %>"> DELETE </a>
 			</td>
