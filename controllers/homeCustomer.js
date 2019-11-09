@@ -1,6 +1,7 @@
 var express = require('express');
 var userModel = require('./../models/user-model');
 var productModel = require('./../models/product-model');
+var proTypeModel = require('./../models/protype-model');
 
 var router = express.Router();
 
@@ -14,10 +15,14 @@ router.get('*', function(req, res, next){
 });
 
 router.get('/', function(req, res){
-	        productModel.getAllP(function(results){
-			res.render('homeCustomer/index', {product: results});
+	proTypeModel.getAll(function(results){
+		var type = {
+			result : results
+		}
+		productModel.getAllP(function(results){
+			res.render('homeCustomer/index', {product: results, protype: type.result});
 		});
-	//res.render('homeCustomer/index');
+	});
 });
 
 module.exports = router;
