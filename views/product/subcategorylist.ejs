@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+</head>
+<body>
+	<h1><%= product[0].subtype %></h1>
+<br>
+	<table>
+		<tr>
+			<td width="100px"><a href="/homeCustomer">Home</a></td>
+			<% for(var i=0; i< company.length; i++){ %>
+			<td width="100px">
+				<a href = ""><%=company[i].name%></a>
+			</td>
+				<% } %>
+			<td width="100px"><a href="/logout">logout</a></td>
+		</tr>
+	</table>
+</body>
+</html>
+

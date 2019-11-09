@@ -2,6 +2,7 @@ var express = require('express');
 var userModel = require('./../models/user-model');
 var productModel = require('./../models/product-model');
 var proSubTypeModel = require('./../models/prosubtype-model');
+var companyModel = require('./../models/company-model');
 var router = express.Router();
 
 router.get('*', function(req, res, next){
@@ -70,13 +71,27 @@ router.post('/edit/:id', function(req, res){
 	});
 });
 
-router.get('/:productName', function(req, res){
-	productModel.getAllByTypeName(req.params.productName, function(results){
+router.get('/:catName', function(req, res){
+	productModel.getAllByTypeName(req.params.catName, function(results){
 		var product = {
 			result : results
 		}
-		proSubTypeModel.getAllByType(req.params.productName, function(results){
+		proSubTypeModel.getAllByType(req.params.catName, function(results){
 			res.render('product/categorylist', {prosubtype: results, product: product.result});
+		});	
+	});
+
+});
+
+router.get('/:catName/:subCatName', function(req, res){
+
+	productModel.getAllBySubTypeName(req.params.subCatName, function(results){
+		var product = {
+			result : results
+		}
+		companyModel.getAll(function(results){
+			console.log('company -> ' + results);
+			res.render('product/subcategorylist', {company: results, product: product.result});
 		});	
 	});
 
