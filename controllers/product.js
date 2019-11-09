@@ -1,6 +1,7 @@
 var express = require('express');
 var userModel = require('./../models/user-model');
 var productModel = require('./../models/product-model');
+var proSubTypeModel = require('./../models/prosubtype-model');
 var router = express.Router();
 
 router.get('*', function(req, res, next){
@@ -67,6 +68,18 @@ router.post('/edit/:id', function(req, res){
 			res.redirect('/product/edit/:req.params.id');
 		}
 	});
+});
+
+router.get('/:productName', function(req, res){
+	productModel.getAllByTypeName(req.params.productName, function(results){
+		var product = {
+			result : results
+		}
+		proSubTypeModel.getAllByType(req.params.productName, function(results){
+			res.render('product/categorylist', {prosubtype: results, product: product.result});
+		});	
+	});
+
 });
 
 router.get('/delete/:id', function(req, res){
