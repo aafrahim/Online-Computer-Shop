@@ -1,6 +1,7 @@
 var express = require('express');
 var userModel = require('./../models/user-model');
 var productModel = require('./../models/product-model');
+var proTypeModel = require('./../models/protype-model');
 var proSubTypeModel = require('./../models/prosubtype-model');
 var companyModel = require('./../models/company-model');
 var router = express.Router();
@@ -22,7 +23,19 @@ router.get('/productlist', function(req, res){
 
 
 router.get('/add', function(req, res){
-	res.render('product/add');
+	proTypeModel.getAll(function(results){
+		var type = {
+			result: results
+		};
+		proSubTypeModel.getAll(function(results){
+			var subtype = {
+				result: results
+			};
+			companyModel.getAll(function(results){
+				res.render('product/add', {company: results, protype: type.result, prosubtype: subtype.result});
+			});
+		});
+	});
 });
 
 router.post('/add', function(req, res){
@@ -31,7 +44,10 @@ router.post('/add', function(req, res){
 		name: req.body.name,
 		type: req.body.type,
 		subtype: req.body.subtype,
-		company: req.body.company
+		image: req.body.image,
+		company: req.body.company,
+		description: req.body.description,
+		price: req.body.price
 	};
 
 	productModel.insert(product, function(status){

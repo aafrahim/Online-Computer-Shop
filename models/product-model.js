@@ -78,8 +78,8 @@ module.exports={
 		});
 	},
 	insert : function(product, callback){
-		var sql = "insert into productinfo values('', ?, ?, ?, ?)";
-		db.execute(sql, [product.name, product.type, product.subtype, product.company], function(status){
+		var sql = "insert into productinfo values('', ?, ?, ?, ?, ?, ?, ?)";
+		db.execute(sql, [product.name, product.type, product.subtype, product.image, product.company, product.description, product.price], function(status){
 			callback(status);
 		});
 	},
