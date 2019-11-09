@@ -84,8 +84,8 @@ module.exports={
 		});
 	},
 	update : function(product, callback){
-		var sql = "update productinfo set name=?, type= ?, subtype=?, company=? where id=?";		
-			db.execute(sql, [product.name, product.type, product.subtype, product.company, product.id], function(status){
+		var sql = "update productinfo set name=?, type= ?, subtype=?, image=?, company=?, description=?, price=? where id=?";		
+			db.execute(sql, [product.name, product.type, product.subtype, product.image, product.company, product.description, product.price, product.id], function(status){
 				callback(status);
 			});
 		

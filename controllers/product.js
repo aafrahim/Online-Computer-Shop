@@ -61,8 +61,23 @@ router.post('/add', function(req, res){
 
 router.get('/edit/:id', function(req, res){
 
-	productModel.getById(req.params.id, function(results){
-		res.render('product/edit', {product: results});		
+	proTypeModel.getAll(function(results){
+		var type = {
+			result: results
+		};
+		proSubTypeModel.getAll(function(results){
+			var subtype = {
+				result: results
+			};
+			companyModel.getAll(function(results){
+				var com = {
+				result: results
+				};
+				productModel.getById(req.params.id, function(results){
+					res.render('product/edit', {product: results, company: com.result, protype: type.result, prosubtype: subtype.result});		
+				});
+			});
+		});
 	});
 
 });
@@ -74,7 +89,10 @@ router.post('/edit/:id', function(req, res){
 		name: req.body.name,
 		type: req.body.type,
 		subtype: req.body.subtype,
-		company: req.body.company
+		image: req.body.image,
+		company: req.body.company,
+		description: req.body.description,
+		price: req.body.price
 	};
 
 	productModel.update(product, function(status){

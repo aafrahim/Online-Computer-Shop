@@ -15,21 +15,56 @@
 	<table border="0">
 		<tr>
 			<td>Name</td>
+			<td>:</td>
 			<td><input type="text" name="name" value="<%=product.name%>"></td>
 		</tr>
 		<tr>
 			<td>Type</td>
-			<td><input type="text" name="type" value="<%=product.type%>"></td>
+			<td>:</td>
+			<td><select name="type">
+				<% for(var i=0; i < protype.length; i++) { %>
+				<option value="<%= protype[i].typename %>"><%= protype[i].typename %></option>
+				<% } %>
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td>Subtype</td>
-			<td><input type="text" name="subtype" value="<%=product.subtype%>"></td>
+			<td>:</td>
+			<td><select name="subtype">
+				<% for(var i=0; i < prosubtype.length; i++) { %>
+				<option value="<%= prosubtype[i].subtypename %>"><%= prosubtype[i].subtypename %></option>
+				<% } %>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Image</td>
+			<td>:</td>
+			<td><input type="file" accept="file_extension|image/*|media_type" name="image" id="image" value="<%=product.image%>"></td>
 		</tr>
 		<tr>
 			<td>company</td>
-			<td><input type="text" name="company" value="<%=product.company%>"></td>
+			<td>:</td>
+			<td><select name="company">
+				<% for(var i=0; i < company.length; i++) { %>
+				<option value="<%= company[i].name %>"><%= company[i].name %></option>
+				<% } %>
+			</select>
+		</td>
 		</tr>
 		<tr>
+			<td>Description</td>
+			<td>:</td>
+			<td><textarea name="description" id="description"><%=product.description%></textarea></td>
+		</tr>
+		<tr>
+			<td>Price</td>
+			<td>:</td>
+			<td><input type="text" name="price" value="<%=product.price%>"></td>
+		</tr>
+		<tr>
+			<td></td>
 			<td></td>
 			<td><input type="submit" name="submit" value="Save"></td>
 		</tr>
