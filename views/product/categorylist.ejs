@@ -18,11 +18,11 @@
 		</tr>
 	</table>
 	<div style="width: 100%">
-		<h3><%=prosubtype[0].subtypename%></h3>
+		<h3>Products</h3>
 		<% for(var i=0; i< product.length; i++) { %>
-			<% if(product[i].subtype == prosubtype[0].subtypename){ %>
-				<div style="width: 180px; height: 250px; float: left;">
-					<img src="/images/AsusZenBookPro15.jpg" width="100%", height="180 px" alt="<%= product[i].name %>">
+			<% if(product[i].type == prosubtype[0].typeid){ %>
+				<div style="min-width: 250px; height: 250px; float: left;">
+					<img src="/images/<%= product[i].image %>" width="220px", height="180 px" alt="<%= product[i].name %>">
 					<p><%= product[i].name %></p>
 					<p>BDT <%= product[i].price %></p>
 				</div>

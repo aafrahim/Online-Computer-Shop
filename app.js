@@ -27,6 +27,7 @@ app.use('/product', product);
 app.use('/user', user);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use(express.static('public'));
 
 //ROUTING
 app.get('/', function(req, res){
