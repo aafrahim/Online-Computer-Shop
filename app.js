@@ -11,6 +11,7 @@ var cookieParser= require('cookie-parser');
  var logout  	= require('./controllers/logout');
  var registration  	= require('./controllers/registration');
  var product = require('./controllers/product');
+  var company = require('./controllers/company');
 var app 		= express();
 
 //CONGIFURATION
@@ -27,6 +28,7 @@ app.use('/product', product);
 app.use('/user', user);
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/company', company);
 app.use(express.static('public'));
 
 //ROUTING

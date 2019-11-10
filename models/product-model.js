@@ -77,6 +77,18 @@ module.exports={
 			}
 		});
 	},
+	getAllbyCompany : function(company, callback){
+		var sql = "select * from productinfo where company =?";
+
+		db.getResults(sql, [company], function(results){
+
+			if(results.length > 0 ) {
+				callback(results);
+			}else{
+				callback([]);
+			}
+		});
+	},
 	insert : function(product, callback){
 		var sql = "insert into productinfo values('', ?, ?, ?, ?, ?, ?, ?)";
 		db.execute(sql, [product.name, product.type, product.subtype, product.image, product.company, product.description, product.price], function(status){

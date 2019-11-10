@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+</head>
+<body>
+	<h1><%= product[0].company %></h1>
+<br>
+	<table>
+		<tr>
+			<td width="100px"><a href="/homeCustomer">Home</a></td>
+			<td width="100px"><a href="/logout">logout</a></td>
+		</tr>
+	</table>
+	<div style="width: 100%">
+		<h3>Products</h3>
+		<% for(var i=0; i< product.length; i++) { %>
+			<div style="min-width: 250px; height: 250px; float: left;">
+				<img src="/images/<%= product[i].image %>" width="220px", height="180 px" alt="<%= product[i].name %>">
+				<p><%= product[i].name %></p>
+				<p>BDT <%= product[i].price %></p>
+			</div>
+	<% } %>
+	</div> 
+</body>
+</html>
+
