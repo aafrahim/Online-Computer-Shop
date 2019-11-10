@@ -23,7 +23,9 @@
 			<% if(product[i].subtype == 'Laptop'){ %>
 				<div style="width: 180px; height: 250px; float: left;">
 					<img src="/images/<%= product[i].image %>" width="100%", height="180 px" alt="<%= product[i].name %>">
-					<p><%= product[i].name %></p>
+					<p>
+						<a href="product/details/<%= product[i].id %>"><%= product[i].name %></a>
+					</p>
 					<p>BDT <%= product[i].price %></p>
 				</div>
 			<% } %>

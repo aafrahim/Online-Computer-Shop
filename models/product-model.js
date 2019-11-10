@@ -15,6 +15,19 @@ module.exports={
 			}
 		});
 	},
+		getByName: function(name, callback){
+
+		var sql = "select * from productinfo where name=?";
+		db.getResults(sql, [name], function(result){
+
+			//console.log(result);
+			if(result.length > 0 ){
+				callback(result[0]);
+			}else{
+				callback([]);
+			}
+		});
+	},
 	// validates: function(user, callback){
 	// 	var sql = "select * from userinfo where username=? and password=?";
 

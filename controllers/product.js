@@ -117,6 +117,12 @@ router.get('/:catName', function(req, res){
 
 });
 
+router.get('/details/:id', function(req, res){
+	productModel.getById(req.params.id, function(result){
+		res.render('product/details', {product: result});
+	});
+});
+
 router.get('/:catName/:subCatName', function(req, res){
 
 	productModel.getAllBySubTypeName(req.params.subCatName, function(results){
